@@ -107,6 +107,8 @@ In the context of highly unbalanced data, such as in ship detection tasks within
 
 ## Usage
 
+### Train
+
 To train the model for ship detection, follow these steps:
 
 1. **Prepare Data and Filepaths**:
@@ -133,8 +135,32 @@ Example:
 python train.py
 ```
 
-Note: Ensure proper dependencies and libraries are installed to execute the training script successfully.
+### Inference
 
+
+To perform inference (prediction) using the trained U-Net model for ship detection, follow these steps:
+
+1. **Inference Function Setup**:
+   - Use the provided `model_inference` function for making predictions.
+   - Modify the `image_path`, `model_path`, `input_shape`, and `threshold` parameters as needed.
+
+2. **Model Loading**:
+   - Replace `'model_path'` with the correct path to your saved trained model file (`'trained_model.h5'`).
+   - Load the trained model using `tf.keras.models.load_model()`.
+
+3. **Perform Inference**:
+   - Define the image path (`image_path_to_predict`) for which you want to generate predictions.
+   - Specify the `best_threshold` value (found through evaluation) for predicting ship instances.
+
+4. **Run the Inference Script**:
+   - Execute the script (`inference.py`) to perform inference on the specified image.
+   - This script loads the trained model, processes the input image, and generates predictions based on the defined threshold.
+
+Example:
+
+```bash
+python inference.py
+```
 
 ## Results
 
