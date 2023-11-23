@@ -173,3 +173,5 @@ python inference.py
 
 ## Contact
 
+illia.oholtsov@gmail.com
+
