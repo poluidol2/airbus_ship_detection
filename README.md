@@ -96,8 +96,8 @@ In the context of highly unbalanced data, such as in ship detection tasks within
 
 ### Combined Dice+BCE Loss
 
-- **Usage Rationale**: The combined use of Dice and BCE losses leverages the strengths of both metrics. The Dice loss focuses on capturing fine-grained details and mitigating the impact of class imbalance, while BCE loss emphasizes accurate classification in pixel-wise segmentation tasks.
-- **Advantages**: This combined loss strategy aims to strike a balance between capturing intricate details (Dice) and ensuring accurate classification (BCE), which is particularly beneficial when dealing with highly unbalanced datasets like ship detection.
+- **Definition The combined use of Dice and BCE losses leverages the strengths of both metrics. The Dice loss focuses on capturing fine-grained details and mitigating the impact of class imbalance, while BCE loss emphasizes accurate classification in pixel-wise segmentation tasks.
+- **Advantages**: This combined loss strategy aims to strike a balance between capturing intricate details (Dice) and ensuring accurate classification (BCE), which is particularly beneficial when dealing with highly unbalanced datasets.
 
 ### Considerations for Sparse Ship Area Percentage
 - **Impact on Training**: Datasets with a notably small ship area percentage pose challenges for model training due to limited positive instances, which might not be adequately captured by conventional loss functions.
