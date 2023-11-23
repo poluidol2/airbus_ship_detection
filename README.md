@@ -84,24 +84,56 @@ The U-Net architecture is a widely used deep learning model for biomedical image
 
 In the context of highly unbalanced data, such as in ship detection tasks within images, employing appropriate loss functions is crucial to ensure effective training and model performance. The following loss functions are selected specifically for addressing the challenges posed by imbalanced datasets in semantic segmentation tasks.
 
-### Dice Coefficient Loss
+#### Dice Coefficient Loss
 
 - **Definition**: The Dice coefficient is a statistical measure used to gauge the similarity between two samples. In the context of semantic segmentation, the Dice coefficient loss quantifies the overlap between predicted and ground truth segmentation masks.
 - **Advantages for Unbalanced Data**: The Dice coefficient loss is effective for imbalanced datasets as it emphasizes the overlap or intersection between predicted and true positive regions, mitigating the impact of the majority class dominating the loss.
 
-### Binary Cross-Entropy (BCE) Loss
+#### Binary Cross-Entropy (BCE) Loss
 
 - **Definition**: Binary Cross-Entropy loss, also known as Log Loss, measures the dissimilarity between predicted and actual pixel-wise classifications in binary segmentation tasks.
 - **Advantages for Unbalanced Data**: BCE loss penalizes misclassifications by assigning higher weights to incorrectly classified pixels, thereby helping the model focus on accurately classifying both positive and negative classes.
 
-### Combined Dice+BCE Loss
+#### Combined Dice+BCE Loss
 
 - **Definition The combined use of Dice and BCE losses leverages the strengths of both metrics. The Dice loss focuses on capturing fine-grained details and mitigating the impact of class imbalance, while BCE loss emphasizes accurate classification in pixel-wise segmentation tasks.
 - **Advantages**: This combined loss strategy aims to strike a balance between capturing intricate details (Dice) and ensuring accurate classification (BCE), which is particularly beneficial when dealing with highly unbalanced datasets.
 
-### Considerations for Sparse Ship Area Percentage
+#### Considerations for Sparse Ship Area Percentage
 - **Impact on Training**: Datasets with a notably small ship area percentage pose challenges for model training due to limited positive instances, which might not be adequately captured by conventional loss functions.
 - **Addressing Sparse Instances**: The chosen combination of Dice and BCE losses aims to mitigate this challenge by encouraging the model to effectively learn from sparse positive instances and their pixel-wise distributions.
+
+
+
+## Usage
+
+To train the model for ship detection, follow these steps:
+
+1. **Prepare Data and Filepaths**:
+   - Specify the appropriate filepaths:
+     - `SEGMENTATION_PATH`: Path to the CSV file containing train masks.
+     - `TRAIN_IMAGES_PATH`: Path to the folder containing training images.
+   - Ensure that the CSV file and image folder paths are correctly set to access the required data.
+
+2. **Configure Hyperparameters**:
+   - Adjust the hyperparameters in the script, such as:
+     - `batch_size`: Batch size for training.
+     - `epochs`: Number of epochs for training.
+     - `image_shape`: Dimensions for the input images.
+     - `model_input_shape`: Rescaled image shape for the model.
+     - `learning_rate`: Learning rate for the optimizer.
+
+3. **Run the Training Script**:
+   - Execute the `train.py` script.
+   - This script initializes the U-Net model, prepares the dataset, compiles the model, performs training with the specified hyperparameters, and saves the trained model.
+
+Example:
+
+```bash
+python train.py
+```
+
+Note: Ensure proper dependencies and libraries are installed to execute the training script successfully.
 
 
 ## Results
