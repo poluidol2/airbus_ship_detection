@@ -1,4 +1,4 @@
-![image](https://github.com/poluidol2/airbus_ship_detection/assets/112002795/a9f34d80-fdcc-4f28-8648-0ace64a35331)# Ship Detection using U-Net with Dice+BCE Loss
+# Ship Detection using U-Net with Dice+BCE Loss
 
 This repository contains the implementation of a ship detection model using U-Net architecture along with a combined loss function of Dice Coefficient and Binary Cross-Entropy (BCE) on highly unbalanced data.
 
@@ -55,10 +55,6 @@ The file data_prep.py includes code for dataset preprocessing. It performs sever
 4. Balancing Dataset by Removing Images with Zero Ships: Additionally, the dataset is balanced by removing a portion of images that do not contain any ships. This step ensures a more balanced distribution between images with and without ships.
    
 ## Model
-
-Certainly! Here's a README description for the provided U-Net architecture:
-
----
 
 ### Overview
 
